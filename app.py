@@ -18,6 +18,12 @@ def create_app():
     # Initialize tables if not already existing
     init_db()
 
+    # Ensure initial dummy data is present on cloud deployments
+    from database import query_one
+    from seed import seed_database
+    if not query_one("SELECT id FROM users LIMIT 1"):
+        seed_database()
+
     # Register Blueprints
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)

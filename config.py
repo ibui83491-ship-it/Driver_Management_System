@@ -7,9 +7,9 @@ class Config:
     SECRET_KEY = os.environ.get("DMS_SECRET_KEY", "dms-enterprise-secure-key-2026-xyz987")
     DATABASE_PATH = os.environ.get("DMS_DATABASE_PATH", str(BASE_DIR / "driver_management.db"))
     TOKEN_MAX_AGE_SECONDS = int(os.environ.get("DMS_TOKEN_MAX_AGE", 86400 * 7)) # 7 days
-    HOST = os.environ.get("DMS_HOST", "127.0.0.1")
-    PORT = int(os.environ.get("DMS_PORT", 5000))
-    DEBUG = os.environ.get("DMS_DEBUG", "True").lower() in ("true", "1")
+    HOST = os.environ.get("DMS_HOST", "0.0.0.0" if os.environ.get("PORT") else "127.0.0.1")
+    PORT = int(os.environ.get("PORT", os.environ.get("DMS_PORT", 5000)))
+    DEBUG = os.environ.get("DMS_DEBUG", "False" if os.environ.get("PORT") else "True").lower() in ("true", "1")
 
     # Roles
     ROLE_ADMIN = "admin"
