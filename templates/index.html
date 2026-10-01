@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Management System | Enterprise Fleet Portal</title>
+  <meta name="description" content="Dynamic role-based driver management system with isolated driver portals and administrative controls.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+  <!-- SPA Main Application Root -->
+  <div id="app"></div>
+
+  <!-- Modal Mount Point -->
+  <div id="modal-container"></div>
+
+  <!-- Toast Notification Mount Point -->
+  <div id="toast-container"></div>
+
+  <!-- Application Logic Modules -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/admin_view.js"></script>
+  <script src="/static/js/driver_view.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
